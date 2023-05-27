@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/custom.css') }}">
+    <title>Home</title>
+</head>
+<body>
+    <section class = "wrapper"> 
+        <!-- Smallest div as stars -->
+        <div id = "stars"></div>
+
+        <!-- larger div as stars2 -->
+        <div id = "stars2"></div>
+
+        <!-- largest div as stars3 -->
+        <div id = "stars3"></div>
+
+        <!-- Actual Form  -->
+        <div id="title" class="container">
+            <span>Welcome to WAND </span>
+            <br>
+            <span> Writing Artificial Network Detector</span>
+            <br>
+            <span>Upload a photo of your handwriting here!</span>
+            <form method='POST' enctype='multipart/form-data'>
+                {{form.hidden_tag()}}
+                {{form.file(class_="upload" )}}
+                {{form.submit(class_="submit")}}
+            </form>
+
+            <!-- Output statement which shows detected writing -->
+            <span class = "output"> {{stats}}</span>
+        </div>
+    </section>
+
+
+</body>
+</html>
